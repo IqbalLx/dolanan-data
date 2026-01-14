@@ -1,0 +1,11 @@
+[project]
+name = "data-platform-poc"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "duckdb>=1.4.3",
+    "ipykernel>=7.1.0",
+    "sqlmesh[dlt,duckdb,trino]>=0.228.1",
+]

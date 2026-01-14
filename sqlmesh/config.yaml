@@ -1,0 +1,55 @@
+# --- Gateway Connection ---
+gateways:
+  warehouse:
+    connection:
+      type: trino
+      host: localhost
+      http_scheme: http
+      port: 8080
+      user: trino
+      catalog: nyc_taxi_catalog
+
+    state_connection:
+      type: duckdb
+      database: ./duckdb/state_warehouse.duckdb
+
+default_gateway: warehouse
+
+# --- Model Defaults ---
+# https://sqlmesh.readthedocs.io/en/stable/reference/model_configuration/#model-defaults
+
+model_defaults:
+  dialect: trino
+  start: 2026-01-13 # Start date for backfill history
+  cron: "@daily" # Run models daily at 12am UTC (can override per model)
+
+# --- Linting Rules ---
+# Enforce standards for your team
+# https://sqlmesh.readthedocs.io/en/stable/guides/linter/
+
+linter:
+  enabled: true
+  rules:
+    - ambiguousorinvalidcolumn
+    - invalidselectstarexpansion
+    - noambiguousprojections
+
+# FLOW: Minimal prompts, automatic changes, summary output
+# https://sqlmesh.readthedocs.io/en/stable/reference/configuration/#plan
+
+plan:
+  no_diff: true # Hide detailed text differences for changed models
+  no_prompts: true # No interactive prompts
+  auto_apply: true # Apply changes automatically
+
+# --- Optional: Set a default target environment ---
+# This is intended for local development to prevent users from accidentally applying plans to the prod environment.
+# It is a development only config and should NOT be committed to your git repo.
+# https://sqlmesh.readthedocs.io/en/stable/guides/configuration/#default-target-environment
+
+# Uncomment the following line to use a default target environment derived from the logged in user's name.
+default_target_environment: dev_{{ user() }}
+
+# Example usage:
+# sqlmesh plan            # Automatically resolves to: sqlmesh plan dev_yourname
+# sqlmesh plan prod       # Specify `prod` to apply changes to production
