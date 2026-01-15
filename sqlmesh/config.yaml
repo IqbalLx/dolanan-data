@@ -8,6 +8,7 @@ gateways:
       port: 8080
       user: trino
       catalog: nyc_taxi_catalog
+      concurrent_tasks: 1
 
     state_connection:
       type: duckdb
@@ -20,7 +21,7 @@ default_gateway: warehouse
 
 model_defaults:
   dialect: trino
-  start: 2026-01-13 # Start date for backfill history
+  start: 2015-01-01 # Start date for backfill history
   cron: "@daily" # Run models daily at 12am UTC (can override per model)
 
 # --- Linting Rules ---
