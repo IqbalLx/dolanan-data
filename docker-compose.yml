@@ -1,5 +1,10 @@
 # ref: https://github.com/apache/polaris/blob/main/getting-started/minio/docker-compose.yml
 
+volumes:
+  minio-data:
+  polaris-data:
+  trino-data:
+
 services:
   minio:
     image: quay.io/minio/minio:latest
@@ -16,6 +21,8 @@ services:
       - "/data"
       - "--console-address"
       - ":9001"
+    volumes:
+      - minio-data:/data
     healthcheck:
       test: ["CMD", "curl", "http://127.0.0.1:9000/minio/health/live"]
       interval: 1s
@@ -46,6 +53,8 @@ services:
       timeout: 10s
       retries: 10
       start_period: 10s
+    volumes:
+      - polaris-data:/polaris/data
 
   setup_bucket:
     image: quay.io/minio/mc:latest
@@ -103,6 +112,11 @@ services:
         condition: service_healthy
     volumes:
       - ./trino/catalog:/etc/trino/catalog
+      - ./trino/etc/jvm.config:/etc/trino/jvm.config
+      - ./trino/etc/config.properties:/etc/trino/config.properties
+      - ./trino/etc/node.properties:/etc/trino/node.properties
+      - ./trino/etc/log.properties:/etc/trino/log.properties
+      - trino-data:/data/trino
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8080/v1/info"]
       interval: 10s
