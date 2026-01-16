@@ -1,111 +1,109 @@
-# ref: https://github.com/apache/polaris/blob/main/getting-started/minio/docker-compose.yml
+volumes:
+    minio-data:
+    pgduck-unix-socket-volume:
+    pg-shared-tmp-dir-volume: # Shared temp directory for both PostgreSQL and pgduck_server
 
 services:
-  minio:
-    image: quay.io/minio/minio:latest
-    ports:
-      # API port
-      - "9000:9000"
-      # UI port
-      - "9001:9001"
-    environment:
-      MINIO_ROOT_USER: minio_root
-      MINIO_ROOT_PASSWORD: m1n1opwd
-    command:
-      - "server"
-      - "/data"
-      - "--console-address"
-      - ":9001"
-    healthcheck:
-      test: ["CMD", "curl", "http://127.0.0.1:9000/minio/health/live"]
-      interval: 1s
-      timeout: 10s
+    minio:
+        image: quay.io/minio/minio:latest
+        ports:
+            # API port
+            - "9000:9000"
+            # UI port
+            - "9001:9001"
+        environment:
+            MINIO_ROOT_USER: minio_root
+            MINIO_ROOT_PASSWORD: m1n1opwd
+        command:
+            - "server"
+            - "/data"
+            - "--console-address"
+            - ":9001"
+        volumes:
+            - minio-data:/data
+        healthcheck:
+            test: ["CMD", "curl", "http://127.0.0.1:9000/minio/health/live"]
+            interval: 1s
+            timeout: 10s
 
-  polaris:
-    image: apache/polaris:latest
-    ports:
-      # API port
-      - "8181:8181"
-      # Optional, allows attaching a debugger to the Polaris JVM
-      - "5005:5005"
-    depends_on:
-      minio:
-        condition: service_healthy
-    environment:
-      JAVA_DEBUG: true
-      JAVA_DEBUG_PORT: "*:5005"
-      AWS_REGION: us-west-2
-      AWS_ACCESS_KEY_ID: minio_root
-      AWS_SECRET_ACCESS_KEY: m1n1opwd
-      POLARIS_BOOTSTRAP_CREDENTIALS: POLARIS,root,s3cr3t
-      polaris.realm-context.realms: POLARIS
-      quarkus.otel.sdk.disabled: "true"
-    healthcheck:
-      test: ["CMD", "curl", "http://localhost:8182/q/health"]
-      interval: 2s
-      timeout: 10s
-      retries: 10
-      start_period: 10s
+    setup_bucket:
+        image: quay.io/minio/mc:latest
+        depends_on:
+            minio:
+                condition: service_healthy
+        entrypoint: "/bin/sh"
+        command:
+            - "-c"
+            - >-
+                echo Creating MinIO bucket...;
+                mc alias set pol http://minio:9000 minio_root m1n1opwd;
+                mc mb pol/warehouse;
+                mc mb pol/data;
+                mc ls pol;
+                echo Bucket setup complete.;
 
-  setup_bucket:
-    image: quay.io/minio/mc:latest
-    depends_on:
-      minio:
-        condition: service_healthy
-    entrypoint: "/bin/sh"
-    command:
-      - "-c"
-      - >-
-        echo Creating MinIO bucket...;
-        mc alias set pol http://minio:9000 minio_root m1n1opwd;
-        mc mb pol/warehouse;
-        mc mb pol/data;
-        mc ls pol;
-        echo Bucket setup complete.;
+    pg_lake-postgres:
+        image: pg_lake:local
+        pull_policy: if_not_present
+        container_name: pg_lake
+        ports:
+            - "5432:5432"
+        volumes:
+            - ./scripts/entrypoint-postgres.sh:/entrypoint-postgres.sh
+            - ./scripts/init-postgres.sql:/init-postgres.sql
+            - pgduck-unix-socket-volume:/home/postgres/pgduck_socket_dir
+            - pg-shared-tmp-dir-volume:/home/postgres/pgsql-18/data/base/pgsql_tmp
+        entrypoint: ["/entrypoint-postgres.sh"]
+        restart: unless-stopped
+        healthcheck:
+            test:
+                [
+                    "CMD",
+                    "psql",
+                    "-c",
+                    "create table test(a int) using iceberg; drop table test;",
+                ]
+            interval: 6s
+            timeout: 2s
+            start_period: 20s
+            retries: 3
+        cap_add:
+            - SYS_PTRACE
+        depends_on:
+            - pgduck-server
 
-  polaris-setup:
-    image: alpine/curl
-    depends_on:
-      polaris:
-        condition: service_healthy
-    environment:
-      - CLIENT_ID=root
-      - CLIENT_SECRET=s3cr3t
-    volumes:
-      - ./polaris/:/polaris
-    entrypoint: "/bin/sh"
-    command:
-      - "-c"
-      - >-
-        chmod +x /polaris/create-catalog.sh;
-        chmod +x /polaris/obtain-token.sh;
-        source /polaris/obtain-token.sh;
-        echo Creating catalog...;
-        export STORAGE_CONFIG_INFO='{"storageType":"S3",
-          "endpoint":"http://localhost:9000",
-          "endpointInternal":"http://minio:9000",
-          "pathStyleAccess":true}';
-        export STORAGE_LOCATION='s3://warehouse';
-        /polaris/create-catalog.sh POLARIS $$TOKEN;
-        echo Extra grants...;
-        curl -H "Authorization: Bearer $$TOKEN" -H 'Content-Type: application/json' \
-          -X PUT \
-          http://polaris:8181/api/management/v1/catalogs/nyc_taxi_catalog/catalog-roles/catalog_admin/grants \
-          -d '{"type":"catalog", "privilege":"CATALOG_MANAGE_CONTENT"}';
-        echo Done.;
-
-  trino:
-    image: trinodb/trino:latest
-    ports:
-      - "8080:8080"
-    depends_on:
-      polaris:
-        condition: service_healthy
-    volumes:
-      - ./trino/catalog:/etc/trino/catalog
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8080/v1/info"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-      start_period: 30s
+    pgduck-server:
+        image: pgduck-server:local
+        pull_policy: if_not_present
+        container_name: pgduck-server
+        # NOTE: pgduck-server only listens on Unix sockets, not TCP
+        # To access DuckDB from the host, connect via pg_lake-postgres container which shares the Unix socket
+        # Example: psql -h localhost -p 5432 -U postgres -c "SELECT * FROM duckdb_fdw.some_table"
+        # IMPORTANT: Both containers must share the same temp directory volume so pgduck_server can access temp files
+        volumes:
+            - ./scripts/entrypoint-pgduck-server.sh:/entrypoint-pgduck-server.sh
+            - ./scripts/init-pgduck-server.sql:/init-pgduck-server.sql
+            - pgduck-unix-socket-volume:/home/postgres/pgduck_socket_dir
+            - pg-shared-tmp-dir-volume:/home/postgres/pgsql-18/data/base/pgsql_tmp
+        entrypoint: ["/entrypoint-pgduck-server.sh"]
+        restart: unless-stopped
+        healthcheck:
+            test:
+                [
+                    "CMD",
+                    "psql",
+                    "-p",
+                    "5332",
+                    "-h",
+                    "/home/postgres/pgduck_socket_dir",
+                    "-c",
+                    "SELECT 1;",
+                ]
+            interval: 6s
+            timeout: 2s
+            start_period: 20s
+            retries: 3
+        cap_add:
+            - SYS_PTRACE
+        depends_on:
+            - minio

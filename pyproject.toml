@@ -5,7 +5,16 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "dlt-iceberg>=0.2.0",
+    "dlt[filesystem]>=1.20.0",
     "duckdb>=1.4.3",
+    "enlighten>=1.14.1",
     "ipykernel>=7.1.0",
-    "sqlmesh[dlt,duckdb,trino]>=0.228.1",
+    "marimo>=0.19.4",
+    "pyiceberg[sql-postgres]>=0.10.0",
+    "sqlalchemy>=2.0.45",
+    "sqlmesh[postgres]>=0.228.1",
 ]
+
+[tool.uv.sources]
+sqlmesh = { path = "../sqlmesh" }

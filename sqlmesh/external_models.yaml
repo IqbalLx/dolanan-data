@@ -1,0 +1,88 @@
+- name: '"postgres"."public"."yellow_trip_2015"'
+  columns:
+      vendorid: BIGINT
+      tpep_pickup_datetime: TIMESTAMP
+      tpep_dropoff_datetime: TIMESTAMP
+      passenger_count: BIGINT
+      trip_distance: DOUBLE PRECISION
+      pickup_longitude: DOUBLE PRECISION
+      pickup_latitude: DOUBLE PRECISION
+      ratecodeid: BIGINT
+      store_and_fwd_flag: TEXT
+      dropoff_longitude: DOUBLE PRECISION
+      dropoff_latitude: DOUBLE PRECISION
+      payment_type: BIGINT
+      fare_amount: DOUBLE PRECISION
+      extra: DOUBLE PRECISION
+      mta_tax: DOUBLE PRECISION
+      tip_amount: DOUBLE PRECISION
+      tolls_amount: DOUBLE PRECISION
+      improvement_surcharge: DOUBLE PRECISION
+      total_amount: DOUBLE PRECISION
+  gateway: warehouse
+- name: '"postgres"."public"."yellow_trip_2016"'
+  columns:
+      vendorid: BIGINT
+      tpep_pickup_datetime: TIMESTAMP
+      tpep_dropoff_datetime: TIMESTAMP
+      passenger_count: BIGINT
+      trip_distance: DOUBLE PRECISION
+      pickup_longitude: DOUBLE PRECISION
+      pickup_latitude: DOUBLE PRECISION
+      ratecodeid: BIGINT
+      store_and_fwd_flag: TEXT
+      dropoff_longitude: DOUBLE PRECISION
+      dropoff_latitude: DOUBLE PRECISION
+      payment_type: BIGINT
+      fare_amount: DOUBLE PRECISION
+      extra: DOUBLE PRECISION
+      mta_tax: DOUBLE PRECISION
+      tip_amount: DOUBLE PRECISION
+      tolls_amount: DOUBLE PRECISION
+      improvement_surcharge: DOUBLE PRECISION
+      total_amount: DOUBLE PRECISION
+  gateway: warehouse
+- name: '"non_iceberg_postgres"."public"."yellow_trip_2015"'
+  columns:
+      vendorid: BIGINT
+      tpep_pickup_datetime: TIMESTAMP
+      tpep_dropoff_datetime: TIMESTAMP
+      passenger_count: BIGINT
+      trip_distance: DOUBLE PRECISION
+      pickup_longitude: DOUBLE PRECISION
+      pickup_latitude: DOUBLE PRECISION
+      ratecodeid: BIGINT
+      store_and_fwd_flag: TEXT
+      dropoff_longitude: DOUBLE PRECISION
+      dropoff_latitude: DOUBLE PRECISION
+      payment_type: BIGINT
+      fare_amount: DOUBLE PRECISION
+      extra: DOUBLE PRECISION
+      mta_tax: DOUBLE PRECISION
+      tip_amount: DOUBLE PRECISION
+      tolls_amount: DOUBLE PRECISION
+      improvement_surcharge: DOUBLE PRECISION
+      total_amount: DOUBLE PRECISION
+  gateway: non_warehouse
+- name: '"non_iceberg_postgres"."public"."yellow_trip_2016"'
+  columns:
+      vendorid: BIGINT
+      tpep_pickup_datetime: TIMESTAMP
+      tpep_dropoff_datetime: TIMESTAMP
+      passenger_count: BIGINT
+      trip_distance: DOUBLE PRECISION
+      pickup_longitude: DOUBLE PRECISION
+      pickup_latitude: DOUBLE PRECISION
+      ratecodeid: BIGINT
+      store_and_fwd_flag: TEXT
+      dropoff_longitude: DOUBLE PRECISION
+      dropoff_latitude: DOUBLE PRECISION
+      payment_type: BIGINT
+      fare_amount: DOUBLE PRECISION
+      extra: DOUBLE PRECISION
+      mta_tax: DOUBLE PRECISION
+      tip_amount: DOUBLE PRECISION
+      tolls_amount: DOUBLE PRECISION
+      improvement_surcharge: DOUBLE PRECISION
+      total_amount: DOUBLE PRECISION
+  gateway: non_warehouse

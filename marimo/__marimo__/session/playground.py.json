@@ -1,0 +1,260 @@
+{
+  "version": "1",
+  "metadata": {
+    "marimo_version": "0.19.4"
+  },
+  "cells": [
+    {
+      "id": "BStR",
+      "code_hash": "9844a750979781909a4a58096a4335cf",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "MsXp",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "JbQH",
+      "code_hash": "b006e1512848bb0cb8b33cdb86876543",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[[\"public\"], [\"sqlmesh__intermediate\"], [\"sqlmesh__staging\"]]"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "lfmz",
+      "code_hash": "72a01205bbe8663b7add2e35a040a90d",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[[\"sqlmesh__intermediate\", \"intermediate__base_yellow_trip__2547566708\"]]"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "zvlF",
+      "code_hash": "f08d74e5818626d7e95656026517c453",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "LaAU",
+      "code_hash": "48f9ce6933b2bd65fba06745776b6bb9",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "WtqE",
+      "code_hash": "228d68211ec4b51b923dcd987b6277af",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Jzgi",
+      "code_hash": "8ceea61ac689c35a3b83000a298261a7",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='Jzgi-1' random-id='19c594ec-5ffb-f9ac-f669-f74d3ee307e1'><marimo-tabs data-initial-value='&quot;&quot;' data-label='null' data-tabs='[&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Query plan&lt;/span&gt;&lt;/span&gt;&quot;,&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Table&lt;/span&gt;&lt;/span&gt;&quot;]'><div data-kind='tab'><marimo-mermaid data-diagram='&quot;graph TD&#92;n&#92;tp1[&#92;&quot;Parquet SCAN [s3://warehouse/pg_lake/postgres/public/yellow_trip_2015/41290/data/b67fc02e-31bc-417e-a76d-102fa4ce4668/data_0.parquet]&#92;n\u03c0 */19;&#92;&quot;]&quot;'></marimo-mermaid></div><div data-kind='tab'><marimo-ui-element object-id='Jzgi-0' random-id='6fa84765-4c63-228c-9e44-a82ff5061a19'><marimo-table data-initial-value='[]' data-label='null' data-data='[]' data-total-rows='&quot;too_many&quot;' data-total-columns='0' data-max-columns='50' data-banner-text='&quot;Previewing only the first 10 rows.&quot;' data-pagination='false' data-page-size='10' data-show-filters='true' data-show-download='false' data-show-column-summaries='false' data-show-data-types='true' data-show-page-size-selector='false' data-show-column-explorer='true' data-show-chart-builder='true' data-row-headers='[]' data-has-stable-row-id='false' data-lazy='true' data-preload='false'></marimo-table></marimo-ui-element></div></marimo-tabs></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "pkqe",
+      "code_hash": "1ebcccc5eb049258b85e0ff7027b6dff",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='pkqe-0' random-id='05fe612f-cf7d-d706-c1c8-0771561a1fee'><marimo-table data-initial-value='[]' data-label='null' data-data='&quot;[{&#92;&quot;statistic&#92;&quot;:&#92;&quot;count&#92;&quot;,&#92;&quot;vendorid&#92;&quot;:12748986.0,&#92;&quot;tpep_pickup_datetime&#92;&quot;:&#92;&quot;12748986&#92;&quot;,&#92;&quot;tpep_dropoff_datetime&#92;&quot;:&#92;&quot;12748986&#92;&quot;,&#92;&quot;passenger_count&#92;&quot;:12748986.0,&#92;&quot;trip_distance&#92;&quot;:12748986.0,&#92;&quot;pickup_longitude&#92;&quot;:12748986.0,&#92;&quot;pickup_latitude&#92;&quot;:12748986.0,&#92;&quot;ratecodeid&#92;&quot;:12748986.0,&#92;&quot;store_and_fwd_flag&#92;&quot;:&#92;&quot;12748986&#92;&quot;,&#92;&quot;dropoff_longitude&#92;&quot;:12748986.0,&#92;&quot;dropoff_latitude&#92;&quot;:12748986.0,&#92;&quot;payment_type&#92;&quot;:12748986.0,&#92;&quot;fare_amount&#92;&quot;:12748986.0,&#92;&quot;extra&#92;&quot;:12748986.0,&#92;&quot;mta_tax&#92;&quot;:12748986.0,&#92;&quot;tip_amount&#92;&quot;:12748986.0,&#92;&quot;tolls_amount&#92;&quot;:12748986.0,&#92;&quot;improvement_surcharge&#92;&quot;:12748983.0,&#92;&quot;total_amount&#92;&quot;:12748986.0},{&#92;&quot;statistic&#92;&quot;:&#92;&quot;null_count&#92;&quot;,&#92;&quot;vendorid&#92;&quot;:0.0,&#92;&quot;tpep_pickup_datetime&#92;&quot;:&#92;&quot;0&#92;&quot;,&#92;&quot;tpep_dropoff_datetime&#92;&quot;:&#92;&quot;0&#92;&quot;,&#92;&quot;passenger_count&#92;&quot;:0.0,&#92;&quot;trip_distance&#92;&quot;:0.0,&#92;&quot;pickup_longitude&#92;&quot;:0.0,&#92;&quot;pickup_latitude&#92;&quot;:0.0,&#92;&quot;ratecodeid&#92;&quot;:0.0,&#92;&quot;store_and_fwd_flag&#92;&quot;:&#92;&quot;0&#92;&quot;,&#92;&quot;dropoff_longitude&#92;&quot;:0.0,&#92;&quot;dropoff_latitude&#92;&quot;:0.0,&#92;&quot;payment_type&#92;&quot;:0.0,&#92;&quot;fare_amount&#92;&quot;:0.0,&#92;&quot;extra&#92;&quot;:0.0,&#92;&quot;mta_tax&#92;&quot;:0.0,&#92;&quot;tip_amount&#92;&quot;:0.0,&#92;&quot;tolls_amount&#92;&quot;:0.0,&#92;&quot;improvement_surcharge&#92;&quot;:3.0,&#92;&quot;total_amount&#92;&quot;:0.0},{&#92;&quot;statistic&#92;&quot;:&#92;&quot;mean&#92;&quot;,&#92;&quot;vendorid&#92;&quot;:1.5214373127400094,&#92;&quot;tpep_pickup_datetime&#92;&quot;:&#92;&quot;2015-01-16 14:42:45.468309&#92;&quot;,&#92;&quot;tpep_dropoff_datetime&#92;&quot;:&#92;&quot;2015-01-16 14:56:56.208541&#92;&quot;,&#92;&quot;passenger_count&#92;&quot;:1.6814908260154964,&#92;&quot;trip_distance&#92;&quot;:13.459129611562831,&#92;&quot;pickup_longitude&#92;&quot;:-72.56183777902534,&#92;&quot;pickup_latitude&#92;&quot;:39.97282304763482,&#92;&quot;ratecodeid&#92;&quot;:1.0369007386156044,&#92;&quot;store_and_fwd_flag&#92;&quot;:null,&#92;&quot;dropoff_longitude&#92;&quot;:-72.60903923063492,&#92;&quot;dropoff_latitude&#92;&quot;:39.9996144802455,&#92;&quot;payment_type&#92;&quot;:1.3867115392549652,&#92;&quot;fare_amount&#92;&quot;:11.905659425777078,&#92;&quot;extra&#92;&quot;:0.3082789572441291,&#92;&quot;mta_tax&#92;&quot;:0.4977986092384132,&#92;&quot;tip_amount&#92;&quot;:1.8538136460421244,&#92;&quot;tolls_amount&#92;&quot;:0.24349839430367243,&#92;&quot;improvement_surcharge&#92;&quot;:0.2831430789420615,&#92;&quot;total_amount&#92;&quot;:15.108294537306733},{&#92;&quot;statistic&#92;&quot;:&#92;&quot;std&#92;&quot;,&#92;&quot;vendorid&#92;&quot;:0.49954024982562145,&#92;&quot;tpep_pickup_datetime&#92;&quot;:null,&#92;&quot;tpep_dropoff_datetime&#92;&quot;:null,&#92;&quot;passenger_count&#92;&quot;:1.3379235172874766,&#92;&quot;trip_distance&#92;&quot;:9844.094218468412,&#92;&quot;pickup_longitude&#92;&quot;:10.12510359297286,&#92;&quot;pickup_latitude&#92;&quot;:5.578690519088358,&#92;&quot;ratecodeid&#92;&quot;:0.6732239779497596,&#92;&quot;store_and_fwd_flag&#92;&quot;:null,&#92;&quot;dropoff_longitude&#92;&quot;:9.966037038031196,&#92;&quot;dropoff_latitude&#92;&quot;:5.487741886619714,&#92;&quot;payment_type&#92;&quot;:0.49886106350538995,&#92;&quot;fare_amount&#92;&quot;:10.302537135952283,&#92;&quot;extra&#92;&quot;:0.5916643112912913,&#92;&quot;mta_tax&#92;&quot;:0.035342286709830965,&#92;&quot;tip_amount&#92;&quot;:1106.4323141838834,&#92;&quot;tolls_amount&#92;&quot;:1.527171400379789,&#92;&quot;improvement_surcharge&#92;&quot;:0.06908632935830727,&#92;&quot;total_amount&#92;&quot;:1106.5032467104757},{&#92;&quot;statistic&#92;&quot;:&#92;&quot;min&#92;&quot;,&#92;&quot;vendorid&#92;&quot;:1.0,&#92;&quot;tpep_pickup_datetime&#92;&quot;:&#92;&quot;2015-01-01 00:00:00&#92;&quot;,&#92;&quot;tpep_dropoff_datetime&#92;&quot;:&#92;&quot;2015-01-01 00:00:00&#92;&quot;,&#92;&quot;passenger_count&#92;&quot;:0.0,&#92;&quot;trip_distance&#92;&quot;:0.0,&#92;&quot;pickup_longitude&#92;&quot;:-121.92581176757812,&#92;&quot;pickup_latitude&#92;&quot;:0.0,&#92;&quot;ratecodeid&#92;&quot;:1.0,&#92;&quot;store_and_fwd_flag&#92;&quot;:&#92;&quot;N&#92;&quot;,&#92;&quot;dropoff_longitude&#92;&quot;:-740.1666870117188,&#92;&quot;dropoff_latitude&#92;&quot;:-9.029156684875488,&#92;&quot;payment_type&#92;&quot;:1.0,&#92;&quot;fare_amount&#92;&quot;:-450.0,&#92;&quot;extra&#92;&quot;:-79.0,&#92;&quot;mta_tax&#92;&quot;:-0.5,&#92;&quot;tip_amount&#92;&quot;:-92.42,&#92;&quot;tolls_amount&#92;&quot;:-26.0,&#92;&quot;improvement_surcharge&#92;&quot;:0.0,&#92;&quot;total_amount&#92;&quot;:-450.3},{&#92;&quot;statistic&#92;&quot;:&#92;&quot;25%&#92;&quot;,&#92;&quot;vendorid&#92;&quot;:1.0,&#92;&quot;tpep_pickup_datetime&#92;&quot;:&#92;&quot;2015-01-09 09:26:51&#92;&quot;,&#92;&quot;tpep_dropoff_datetime&#92;&quot;:&#92;&quot;2015-01-09 09:44:29&#92;&quot;,&#92;&quot;passenger_count&#92;&quot;:1.0,&#92;&quot;trip_distance&#92;&quot;:1.0,&#92;&quot;pickup_longitude&#92;&quot;:-73.99168395996094,&#92;&quot;pickup_latitude&#92;&quot;:40.73554229736328,&#92;&quot;ratecodeid&#92;&quot;:1.0,&#92;&quot;store_and_fwd_flag&#92;&quot;:null,&#92;&quot;dropoff_longitude&#92;&quot;:-73.99119567871094,&#92;&quot;dropoff_latitude&#92;&quot;:40.73435974121094,&#92;&quot;payment_type&#92;&quot;:1.0,&#92;&quot;fare_amount&#92;&quot;:6.5,&#92;&quot;extra&#92;&quot;:0.0,&#92;&quot;mta_tax&#92;&quot;:0.5,&#92;&quot;tip_amount&#92;&quot;:0.0,&#92;&quot;tolls_amount&#92;&quot;:0.0,&#92;&quot;improvement_surcharge&#92;&quot;:0.3,&#92;&quot;total_amount&#92;&quot;:8.16},{&#92;&quot;statistic&#92;&quot;:&#92;&quot;50%&#92;&quot;,&#92;&quot;vendorid&#92;&quot;:2.0,&#92;&quot;tpep_pickup_datetime&#92;&quot;:&#92;&quot;2015-01-16 11:42:49&#92;&quot;,&#92;&quot;tpep_dropoff_datetime&#92;&quot;:&#92;&quot;2015-01-16 11:56:56&#92;&quot;,&#92;&quot;passenger_count&#92;&quot;:1.0,&#92;&quot;trip_distance&#92;&quot;:1.68,&#92;&quot;pickup_longitude&#92;&quot;:-73.98159790039062,&#92;&quot;pickup_latitude&#92;&quot;:40.753143310546875,&#92;&quot;ratecodeid&#92;&quot;:1.0,&#92;&quot;store_and_fwd_flag&#92;&quot;:null,&#92;&quot;dropoff_longitude&#92;&quot;:-73.9797592163086,&#92;&quot;dropoff_latitude&#92;&quot;:40.753623962402344,&#92;&quot;payment_type&#92;&quot;:1.0,&#92;&quot;fare_amount&#92;&quot;:9.0,&#92;&quot;extra&#92;&quot;:0.0,&#92;&quot;mta_tax&#92;&quot;:0.5,&#92;&quot;tip_amount&#92;&quot;:1.0,&#92;&quot;tolls_amount&#92;&quot;:0.0,&#92;&quot;improvement_surcharge&#92;&quot;:0.3,&#92;&quot;total_amount&#92;&quot;:11.16},{&#92;&quot;statistic&#92;&quot;:&#92;&quot;75%&#92;&quot;,&#92;&quot;vendorid&#92;&quot;:2.0,&#92;&quot;tpep_pickup_datetime&#92;&quot;:&#92;&quot;2015-01-23 19:15:29&#92;&quot;,&#92;&quot;tpep_dropoff_datetime&#92;&quot;:&#92;&quot;2015-01-23 19:29:04&#92;&quot;,&#92;&quot;passenger_count&#92;&quot;:2.0,&#92;&quot;trip_distance&#92;&quot;:3.0,&#92;&quot;pickup_longitude&#92;&quot;:-73.96662139892578,&#92;&quot;pickup_latitude&#92;&quot;:40.76757049560547,&#92;&quot;ratecodeid&#92;&quot;:1.0,&#92;&quot;store_and_fwd_flag&#92;&quot;:null,&#92;&quot;dropoff_longitude&#92;&quot;:-73.96245574951172,&#92;&quot;dropoff_latitude&#92;&quot;:40.768802642822266,&#92;&quot;payment_type&#92;&quot;:2.0,&#92;&quot;fare_amount&#92;&quot;:13.5,&#92;&quot;extra&#92;&quot;:0.5,&#92;&quot;mta_tax&#92;&quot;:0.5,&#92;&quot;tip_amount&#92;&quot;:2.06,&#92;&quot;tolls_amount&#92;&quot;:0.0,&#92;&quot;improvement_surcharge&#92;&quot;:0.3,&#92;&quot;total_amount&#92;&quot;:16.3},{&#92;&quot;statistic&#92;&quot;:&#92;&quot;max&#92;&quot;,&#92;&quot;vendorid&#92;&quot;:2.0,&#92;&quot;tpep_pickup_datetime&#92;&quot;:&#92;&quot;2015-01-31 23:59:59&#92;&quot;,&#92;&quot;tpep_dropoff_datetime&#92;&quot;:&#92;&quot;2016-02-02 16:30:52&#92;&quot;,&#92;&quot;passenger_count&#92;&quot;:9.0,&#92;&quot;trip_distance&#92;&quot;:15420004.5,&#92;&quot;pickup_longitude&#92;&quot;:78.66265106201172,&#92;&quot;pickup_latitude&#92;&quot;:404.70001220703125,&#92;&quot;ratecodeid&#92;&quot;:99.0,&#92;&quot;store_and_fwd_flag&#92;&quot;:&#92;&quot;Y&#92;&quot;,&#92;&quot;dropoff_longitude&#92;&quot;:85.2740249633789,&#92;&quot;dropoff_latitude&#92;&quot;:459.5333251953125,&#92;&quot;payment_type&#92;&quot;:5.0,&#92;&quot;fare_amount&#92;&quot;:4008.0,&#92;&quot;extra&#92;&quot;:999.99,&#92;&quot;mta_tax&#92;&quot;:0.5,&#92;&quot;tip_amount&#92;&quot;:3950588.8,&#92;&quot;tolls_amount&#92;&quot;:1450.09,&#92;&quot;improvement_surcharge&#92;&quot;:0.3,&#92;&quot;total_amount&#92;&quot;:3950611.6}]&quot;' data-total-rows='9' data-total-columns='20' data-max-columns='50' data-banner-text='&quot;&quot;' data-pagination='true' data-page-size='10' data-field-types='[[&quot;statistic&quot;,[&quot;string&quot;,&quot;str&quot;]],[&quot;vendorid&quot;,[&quot;number&quot;,&quot;f64&quot;]],[&quot;tpep_pickup_datetime&quot;,[&quot;string&quot;,&quot;str&quot;]],[&quot;tpep_dropoff_datetime&quot;,[&quot;string&quot;,&quot;str&quot;]],[&quot;passenger_count&quot;,[&quot;number&quot;,&quot;f64&quot;]],[&quot;trip_distance&quot;,[&quot;number&quot;,&quot;f64&quot;]],[&quot;pickup_longitude&quot;,[&quot;number&quot;,&quot;f64&quot;]],[&quot;pickup_latitude&quot;,[&quot;number&quot;,&quot;f64&quot;]],[&quot;ratecodeid&quot;,[&quot;number&quot;,&quot;f64&quot;]],[&quot;store_and_fwd_flag&quot;,[&quot;string&quot;,&quot;str&quot;]],[&quot;dropoff_longitude&quot;,[&quot;number&quot;,&quot;f64&quot;]],[&quot;dropoff_latitude&quot;,[&quot;number&quot;,&quot;f64&quot;]],[&quot;payment_type&quot;,[&quot;number&quot;,&quot;f64&quot;]],[&quot;fare_amount&quot;,[&quot;number&quot;,&quot;f64&quot;]],[&quot;extra&quot;,[&quot;number&quot;,&quot;f64&quot;]],[&quot;mta_tax&quot;,[&quot;number&quot;,&quot;f64&quot;]],[&quot;tip_amount&quot;,[&quot;number&quot;,&quot;f64&quot;]],[&quot;tolls_amount&quot;,[&quot;number&quot;,&quot;f64&quot;]],[&quot;improvement_surcharge&quot;,[&quot;number&quot;,&quot;f64&quot;]],[&quot;total_amount&quot;,[&quot;number&quot;,&quot;f64&quot;]]]' data-show-filters='true' data-show-download='true' data-show-column-summaries='false' data-show-data-types='true' data-show-page-size-selector='true' data-show-column-explorer='true' data-show-chart-builder='true' data-row-headers='[]' data-has-stable-row-id='false' data-lazy='false' data-preload='false'></marimo-table></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "RokD",
+      "code_hash": "17192e9fcbefcefd118e56c0cfdadfb8",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='RokD-1' random-id='1b3d66d8-8189-ec89-ab07-41521a889cbc'><marimo-tabs data-initial-value='&quot;&quot;' data-label='null' data-tabs='[&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Query plan&lt;/span&gt;&lt;/span&gt;&quot;,&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Table&lt;/span&gt;&lt;/span&gt;&quot;]'><div data-kind='tab'><marimo-mermaid data-diagram='&quot;graph TD&#92;n&#92;tp1[&#92;&quot;Parquet SCAN [s3://warehouse/pg_lake/postgres/public/yellow_trip_2016/41308/data/e326bd6f-9a52-4477-8ce7-018db1bd8043/data_1.parquet, s3://warehouse/pg_lake/postgres/public/yellow_trip_2016/41308/data/e326bd6f-9a52-4477-8ce7-018db1bd8043/data_0.parquet]&#92;n\u03c0 */19;&#92;&quot;]&quot;'></marimo-mermaid></div><div data-kind='tab'><marimo-ui-element object-id='RokD-0' random-id='3a2095b9-c8cc-a76d-01a6-32e8ad0c3a62'><marimo-table data-initial-value='[]' data-label='null' data-data='[]' data-total-rows='&quot;too_many&quot;' data-total-columns='0' data-max-columns='50' data-banner-text='&quot;Previewing only the first 10 rows.&quot;' data-pagination='false' data-page-size='10' data-show-filters='true' data-show-download='false' data-show-column-summaries='false' data-show-data-types='true' data-show-page-size-selector='false' data-show-column-explorer='true' data-show-chart-builder='true' data-row-headers='[]' data-has-stable-row-id='false' data-lazy='true' data-preload='false'></marimo-table></marimo-ui-element></div></marimo-tabs></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "XTOx",
+      "code_hash": "56598f2c162ebef22fc0ee4cccfdd2a6",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "{\"vendorid\": \"text/plain:<class 'int'>\", \"tpep_pickup_datetime\": \"text/plain:<class 'datetime.datetime'>\", \"tpep_dropoff_datetime\": \"text/plain:<class 'datetime.datetime'>\", \"passenger_count\": \"text/plain:<class 'int'>\", \"trip_distance\": \"text/plain:<class 'float'>\", \"pickup_longitude\": \"text/plain:<class 'float'>\", \"pickup_latitude\": \"text/plain:<class 'float'>\", \"ratecodeid\": \"text/plain:<class 'int'>\", \"store_and_fwd_flag\": \"text/plain:<class 'str'>\", \"dropoff_longitude\": \"text/plain:<class 'float'>\", \"dropoff_latitude\": \"text/plain:<class 'float'>\", \"payment_type\": \"text/plain:<class 'int'>\", \"fare_amount\": \"text/plain:<class 'float'>\", \"extra\": \"text/plain:<class 'float'>\", \"mta_tax\": \"text/plain:<class 'float'>\", \"tip_amount\": \"text/plain:<class 'float'>\", \"tolls_amount\": \"text/plain:<class 'float'>\", \"improvement_surcharge\": \"text/plain:<class 'float'>\", \"total_amount\": \"text/plain:<class 'float'>\"}"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "KdkK",
+      "code_hash": "e0a2cd334b87f68803804b3c011518c2",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "{\"vendorid\": \"text/plain:<class 'int'>\", \"tpep_pickup_datetime\": \"text/plain:<class 'datetime.datetime'>\", \"tpep_dropoff_datetime\": \"text/plain:<class 'datetime.datetime'>\", \"passenger_count\": \"text/plain:<class 'int'>\", \"trip_distance\": \"text/plain:<class 'float'>\", \"pickup_longitude\": \"text/plain:<class 'float'>\", \"pickup_latitude\": \"text/plain:<class 'float'>\", \"ratecodeid\": \"text/plain:<class 'int'>\", \"store_and_fwd_flag\": \"text/plain:<class 'str'>\", \"dropoff_longitude\": \"text/plain:<class 'float'>\", \"dropoff_latitude\": \"text/plain:<class 'float'>\", \"payment_type\": \"text/plain:<class 'int'>\", \"fare_amount\": \"text/plain:<class 'float'>\", \"extra\": \"text/plain:<class 'float'>\", \"mta_tax\": \"text/plain:<class 'float'>\", \"tip_amount\": \"text/plain:<class 'float'>\", \"tolls_amount\": \"text/plain:<class 'float'>\", \"improvement_surcharge\": \"text/plain:<class 'float'>\", \"total_amount\": \"text/plain:<class 'float'>\"}"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "TJdl",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "kUmb",
+      "code_hash": "2c4f1c5d7147736d8da0e3820e013977",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "iNSv",
+      "code_hash": "6d8669c1d8d03b529d5045469a6b8f8e",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "GmtL",
+      "code_hash": "3b29592abdbe113a0c0ef34859f61175",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Yzko",
+      "code_hash": "1d0db38904205bec4d6f6f6a1f6cec3e",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "cwAX",
+      "code_hash": "bf76abdd6514379a19a7ba4c6c2f3a28",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='cwAX-0' random-id='2c26c75f-7037-7a21-5b2f-f115f114a8cd'><marimo-table data-initial-value='[]' data-label='null' data-data='&quot;[{&#92;&quot;avg&#92;&quot;:&#92;&quot;1.667039733987148&#92;&quot;}]&quot;' data-total-rows='1' data-total-columns='1' data-max-columns='50' data-banner-text='&quot;&quot;' data-pagination='true' data-page-size='10' data-field-types='[[&quot;avg&quot;,[&quot;number&quot;,&quot;decimal[38,15]&quot;]]]' data-show-filters='true' data-show-download='true' data-show-column-summaries='false' data-show-data-types='true' data-show-page-size-selector='false' data-show-column-explorer='true' data-show-chart-builder='true' data-row-headers='[]' data-has-stable-row-id='false' data-lazy='false' data-preload='false'></marimo-table></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "otGG",
+      "code_hash": "0907bffa4c9f70b86b51548dbabbe1f3",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='otGG-0' random-id='389baa1b-0d8f-7cfa-36a6-8c839c535c8a'><marimo-table data-initial-value='[]' data-label='null' data-data='&quot;[{&#92;&quot;avg&#92;&quot;:&#92;&quot;1.6670397339871483&#92;&quot;}]&quot;' data-total-rows='1' data-total-columns='1' data-max-columns='50' data-banner-text='&quot;&quot;' data-pagination='true' data-page-size='10' data-field-types='[[&quot;avg&quot;,[&quot;number&quot;,&quot;decimal[38,16]&quot;]]]' data-show-filters='true' data-show-download='true' data-show-column-summaries='false' data-show-data-types='true' data-show-page-size-selector='false' data-show-column-explorer='true' data-show-chart-builder='true' data-row-headers='[]' data-has-stable-row-id='false' data-lazy='false' data-preload='false'></marimo-table></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "UAcN",
+      "code_hash": "ad1440e2edb2744aaebe58b5a0b8d295",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='UAcN-0' random-id='c95427c6-295b-cd88-f176-c5a9e98c2cf3'><marimo-table data-initial-value='[]' data-label='null' data-data='&quot;[{&#92;&quot;count&#92;&quot;:47248845}]&quot;' data-total-rows='1' data-total-columns='1' data-max-columns='50' data-banner-text='&quot;&quot;' data-pagination='true' data-page-size='10' data-field-types='[[&quot;count&quot;,[&quot;integer&quot;,&quot;i64&quot;]]]' data-show-filters='true' data-show-download='true' data-show-column-summaries='false' data-show-data-types='true' data-show-page-size-selector='false' data-show-column-explorer='true' data-show-chart-builder='true' data-row-headers='[]' data-has-stable-row-id='false' data-lazy='false' data-preload='false'></marimo-table></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "jAZi",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    }
+  ]
+}

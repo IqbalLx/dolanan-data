@@ -1,17 +1,30 @@
 # --- Gateway Connection ---
 gateways:
-  warehouse:
-    connection:
-      type: trino
-      host: localhost
-      http_scheme: http
-      port: 8080
-      user: trino
-      catalog: nyc_taxi_catalog
+    warehouse:
+        connection:
+            type: pg_lake
+            host: localhost
+            user: postgres
+            password: postgres
+            port: 5432
+            database: postgres
 
-    state_connection:
-      type: duckdb
-      database: ./duckdb/state_warehouse.duckdb
+        state_connection:
+            type: postgres
+            host: localhost
+            user: postgres
+            password: postgres
+            port: 5432
+            database: sqlmesh_state
+
+    non_warehouse:
+        connection:
+            type: postgres
+            host: localhost
+            user: postgres
+            password: postgres
+            port: 5432
+            database: non_iceberg_postgres
 
 default_gateway: warehouse
 
@@ -19,28 +32,28 @@ default_gateway: warehouse
 # https://sqlmesh.readthedocs.io/en/stable/reference/model_configuration/#model-defaults
 
 model_defaults:
-  dialect: trino
-  start: 2026-01-13 # Start date for backfill history
-  cron: "@daily" # Run models daily at 12am UTC (can override per model)
+    dialect: postgres
+    start: 2015-01-01 # Start date for backfill history
+    cron: "@daily" # Run models daily at 12am UTC (can override per model)
 
 # --- Linting Rules ---
 # Enforce standards for your team
 # https://sqlmesh.readthedocs.io/en/stable/guides/linter/
 
 linter:
-  enabled: true
-  rules:
-    - ambiguousorinvalidcolumn
-    - invalidselectstarexpansion
-    - noambiguousprojections
+    enabled: true
+    rules:
+        - ambiguousorinvalidcolumn
+        - invalidselectstarexpansion
+        - noambiguousprojections
 
 # FLOW: Minimal prompts, automatic changes, summary output
 # https://sqlmesh.readthedocs.io/en/stable/reference/configuration/#plan
 
 plan:
-  no_diff: true # Hide detailed text differences for changed models
-  no_prompts: true # No interactive prompts
-  auto_apply: true # Apply changes automatically
+    no_diff: true # Hide detailed text differences for changed models
+    no_prompts: true # No interactive prompts
+    auto_apply: true # Apply changes automatically
 
 # --- Optional: Set a default target environment ---
 # This is intended for local development to prevent users from accidentally applying plans to the prod environment.
